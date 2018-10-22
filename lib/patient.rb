@@ -20,12 +20,13 @@ class Patient
   end
 
   def appointments
-    dr_app = []
+    pat_app = []
     Appointment.all.each do |appt|
       if appt.patient == self
-        dr_app << appt
+        pat_app << appt
       end
     end
+    pat_app
   end
 
   def doctors
