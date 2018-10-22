@@ -26,7 +26,6 @@ class Patient
         dr_app << appt
       end
     end
-    dr_app
   end
 
   def doctors
