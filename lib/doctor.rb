@@ -25,6 +25,7 @@ class Doctor
         patient_app << appt
       end
     end
+    patient_app
   end
 
   def doctors
