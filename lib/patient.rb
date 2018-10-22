@@ -1,9 +1,8 @@
 require 'pry'
 
 class Patient
+  @@all = []
   attr_accessor :name
-
-  @@all =[]
 
   def initialize(name)
     @name = name
@@ -14,21 +13,22 @@ class Patient
     @@all
   end
 
-  def new_appointment(doctor, date)
-    new_appointment = Appointment.new(self, doctor, date)
-
+  def new_appointment(date, doctor)
+    new_appt = Appointment.new(self, date, doctor)
   end
 
   def appointments
-    pat_app = []
+    this_patient_appts = []
     Appointment.all.each do |appt|
       if appt.patient == self
-        pat_app << appt
+        this_patient_appts << appt
       end
     end
+    this_patient_appts
   end
 
   def doctors
-    appointments.collect {|appt| appt.date}
+    appointments.collect{|appt| appt.date}
   end
+
 end
